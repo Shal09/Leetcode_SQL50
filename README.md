@@ -1,5 +1,6 @@
-# Leetcode_SQL50 Happy Querying! 🚀
+# Leetcode_SQL50 
 
+**Happy Querying! 🚀**
 
 LeetCode SQL Solutions
 Welcome to my repository of solutions to 50 SQL problems on LeetCode! This repository showcases my understanding of SQL concepts and my ability to solve real-world database problems effectively.
