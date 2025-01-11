@@ -13,7 +13,8 @@ Window Functions: Leveraging ROW_NUMBER(), RANK(), NTILE(), etc.
 Advanced Topics: Union, group by with having, self-joins, and more.
 
 
-![image](https://github.com/user-attachments/assets/3cd5b4b6-7116-4e49-8cd9-27640e3a5606)
+![image](https://github.com/user-attachments/assets/d23c2291-0015-49ae-8539-79c6cf91db37)
+
 
 
 
