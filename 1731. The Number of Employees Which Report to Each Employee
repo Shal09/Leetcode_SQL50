@@ -1,0 +1,30 @@
+SELECT e1.employee_id, e1.name, count(*) as reports_count, ROUND(AVG(e2.age)) as average_age
+FROM Employees e1
+JOIN Employees e2
+ON
+e1.employee_id = e2.reports_to
+GROUP BY e1.employee_id,e1.name
+ORDER BY  e1.employee_id;
+
+
+Note:
+Why Do We Divide the Table into e1 and e2?
+We need to differentiate between managers and their direct reports.
+If we used only one table, we wouldn't be able to match managers with their reports.
+e1 (Managers) links to e2 (Direct Reports) through reports_to.
+Grouping allows us to count and average reports per manager.
+COUNT(*) tells us how many employees report to e1.
+AVG(e2.age) calculates the average age of employees reporting to e1.
+
+Why COUNT(*)? (better option)
+This is counting all rows where the e1.employee_id (the manager) is joined with their reports from e2 (employees who report to the manager). It counts the number of employees (e2.employee_id) who are reporting to the manager (e1.employee_id).
+COUNT(*) counts all the rows returned by the join for each manager. It includes every row, regardless of the specific data in each column.
+It effectively counts how many employees (rows) are reporting to a specific manager.
+
+Can We Use e2.employee_id Instead?
+yes, COUNT(e2.employee_id) counts only non-NULL values in the e2.employee_id column. If there's a situation where a manager has no employees reporting to them (i.e., no matching rows in the join), it won't count anything because e2.employee_id would be NULL.
+
+WHy SELF JOINS?
+✅ Self-joins allow us to match employees with their managers.
+✅ Dividing the table into e1 (Managers) and e2 (Reports) enables aggregation per manager.
+✅ Grouping by e1.employee_id ensures correct count and average age calculation.
