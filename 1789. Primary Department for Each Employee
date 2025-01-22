@@ -1,0 +1,11 @@
+WITH deptid AS (
+SELECT 
+    employee_id,
+    department_id,
+    ROW_NUMBER() OVER(PARTITION BY employee_id ORDER BY CASE WHEN primary_flag = 'Y' THEN 1 ELSE 2 END) as rn
+FROM Employee
+)
+SELECT employee_id,
+       department_id
+FROM deptid
+    WHERE rn  = 1
